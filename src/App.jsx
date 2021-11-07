@@ -1,11 +1,14 @@
+import { useAppContext } from "contexts";
 import { BrowserRouter } from "react-router-dom";
-import { PublicRoutes } from "routers";
+import { PrivateRoutes, PublicRoutes } from "routers";
 
 const App = () => {
+  const { user } = useAppContext();
+
   return (
     <>
       <BrowserRouter>
-        <PublicRoutes />
+        {user ? <PrivateRoutes /> : <PublicRoutes />}
       </BrowserRouter>
     </>
   );

@@ -1,12 +1,12 @@
 import { ChangePassword, Dashboard } from "pages";
-import { Routes } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
 const PrivateRoutes = () => {
   return (
     <Routes>
-      <Routes path="/" element={<Dashboard />} />
-      <Routes path="/dashboard" element={<Dashboard />} />
-      <Routes path="/change-password" element={<ChangePassword />} />
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/change-password" element={<ChangePassword />} />
     </Routes>
   );
 };
