@@ -1,3 +1,5 @@
-export { default as Login } from "./Login";
-export { default as Dashboard } from "./Dashboard";
-export { default as ChangePassword } from "./ChangePassword";
+import { lazy } from "react";
+
+export const Login = lazy(() => import("./Login"));
+export const Dashboard = lazy(() => import("./Dashboard"));
+export const ChangePassword = lazy(() => import("./ChangePassword"));

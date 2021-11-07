@@ -5,3 +5,9 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
+.circularProgress {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
