@@ -7,7 +7,6 @@ import {
   TextField,
   InputAdornment,
   CardHeader,
-  CardActions,
   Button,
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
@@ -45,6 +44,9 @@ const Login = () => {
           <CardHeader
             title="Sign In To Access Panel"
             subheader="Please enter your credentials to sign in"
+            titleTypographyProps={{
+              gutterBottom: true,
+            }}
           />
           <Formik
             initialValues={initialValues}
@@ -83,20 +85,22 @@ const Login = () => {
                       Forgot Password?
                     </Button>
                   </div>
+                  <div className="place-content-center">
+                    <LoadingButton
+                      className="mt-1vh"
+                      variant="contained"
+                      color="primary"
+                      type="submit"
+                      disabled={isSubmitting || !isValid}
+                      loading={isSubmitting}
+                      loadingPosition="start"
+                      startIcon={<LoginOutlined />}
+                      fullWidth
+                    >
+                      Access Panel
+                    </LoadingButton>
+                  </div>
                 </CardContent>
-                <CardActions className="place-content-center">
-                  <LoadingButton
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    disabled={isSubmitting || !isValid}
-                    loading={isSubmitting}
-                    loadingPosition="start"
-                    startIcon={<LoginOutlined />}
-                  >
-                    Access Panel
-                  </LoadingButton>
-                </CardActions>
               </Form>
             )}
           </Formik>
