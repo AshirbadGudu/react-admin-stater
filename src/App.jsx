@@ -10,7 +10,7 @@ const App = () => {
   return (
     <Suspense fallback={<Loader />}>
       <BrowserRouter>
-        {user ? <PrivateRoutes /> : <PublicRoutes />}
+        {user?.uid ? <PrivateRoutes /> : <PublicRoutes />}
       </BrowserRouter>
     </Suspense>
   );

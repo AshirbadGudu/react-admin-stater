@@ -11,3 +11,18 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.place-content-end {
+  place-content: end;
+}
+.place-items-center {
+  place-items: center;
+}
+.place-content-center {
+  place-content: center;
+}
+.d-flex {
+  display: flex !important;
+}
+.h-75vh {
+  height: 75vh;
+}

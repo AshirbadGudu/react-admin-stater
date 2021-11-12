@@ -4,14 +4,16 @@ import {
   Container,
   Card,
   CardContent,
-  Typography,
   TextField,
   InputAdornment,
+  CardHeader,
+  CardActions,
+  Button,
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-
 import { LoginSchema } from "schemas";
 import { LoginOutlined } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const initialValues = LoginSchema.reduce((accumulator, currentValue) => {
@@ -33,17 +35,23 @@ const Login = () => {
   };
   return (
     <>
-      <Container maxWidth="sm">
+      <Container
+        maxWidth="md"
+        className="d-flex h-75vh place-content-center place-items-center"
+      >
         <Card>
-          <CardContent>
-            <Typography variant="h5">Login</Typography>
-            <Formik
-              initialValues={initialValues}
-              validationSchema={Yup.object(validationSchema)}
-              onSubmit={handleLogin}
-            >
-              {({ isSubmitting, isValid }) => (
-                <Form>
+          <CardHeader
+            title="Sign In To Access Panel"
+            subheader="Please enter your credentials to sign in"
+          />
+          <Formik
+            initialValues={initialValues}
+            validationSchema={Yup.object(validationSchema)}
+            onSubmit={handleLogin}
+          >
+            {({ isSubmitting, isValid }) => (
+              <Form>
+                <CardContent>
                   {LoginSchema.map((inputItem) => (
                     <Field name={inputItem.name} key={inputItem.key}>
                       {(props) => (
@@ -68,6 +76,13 @@ const Login = () => {
                       )}
                     </Field>
                   ))}
+                  <div className="d-flex place-content-end">
+                    <Button component={Link} to="/forgot-password">
+                      Forgot Password?
+                    </Button>
+                  </div>
+                </CardContent>
+                <CardActions className="place-content-center">
                   <LoadingButton
                     variant="contained"
                     color="primary"
@@ -76,14 +91,13 @@ const Login = () => {
                     loading={isSubmitting}
                     loadingPosition="start"
                     startIcon={<LoginOutlined />}
-                    fullWidth
                   >
                     Access Panel
                   </LoadingButton>
-                </Form>
-              )}
-            </Formik>
-          </CardContent>
+                </CardActions>
+              </Form>
+            )}
+          </Formik>
         </Card>
       </Container>
     </>
