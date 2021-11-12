@@ -23,6 +23,7 @@ import {
   Menu as MenuIcon,
 } from "@mui/icons-material";
 import { MenuItems } from "configs";
+import { useAppContext } from "contexts";
 import { Link } from "react-router-dom";
 // Define drawer width
 const drawerWidth = 240;
@@ -108,6 +109,14 @@ const PanelLayout = ({ children }) => {
   const handleDrawerOpen = () => setIsDrawerOpen(true);
   const handleDrawerClose = () => setIsDrawerOpen(false);
   const theme = useTheme();
+  const { setUser } = useAppContext();
+  const handleLogout = async () => {
+    try {
+      setUser({});
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -168,7 +177,7 @@ const PanelLayout = ({ children }) => {
               </Fragment>
             ))}
             <Tooltip title={"Click Here To Logout"} followCursor>
-              <ListItem button>
+              <ListItem button onClick={handleLogout}>
                 <ListItemIcon>
                   <ExitToApp />
                 </ListItemIcon>

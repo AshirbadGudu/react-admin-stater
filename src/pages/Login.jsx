@@ -14,8 +14,10 @@ import { LoadingButton } from "@mui/lab";
 import { LoginSchema } from "schemas";
 import { LoginOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { useAppContext } from "contexts";
 
 const Login = () => {
+  const { setUser } = useAppContext();
   const initialValues = LoginSchema.reduce((accumulator, currentValue) => {
     accumulator[currentValue.name] = currentValue.initialValue;
     return accumulator;
@@ -26,7 +28,7 @@ const Login = () => {
   }, {});
   const handleLogin = async (values, submitProps) => {
     try {
-      console.log(values);
+      setUser(values);
     } catch (error) {
       console.log(error);
     } finally {
