@@ -6,7 +6,6 @@ import {
   CssBaseline,
   Typography,
   IconButton,
-  ListItem,
   ListItemIcon,
   ListItemText,
   styled,
@@ -15,6 +14,8 @@ import {
   Divider,
   Drawer,
   AppBar,
+  Button,
+  ListItemButton,
 } from "@mui/material";
 import {
   ExitToApp,
@@ -24,9 +25,10 @@ import {
 } from "@mui/icons-material";
 import { MenuItems } from "configs";
 import { useAppContext } from "contexts";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 // Define drawer width
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -109,6 +111,7 @@ const PanelLayout = ({ children }) => {
   const handleDrawerOpen = () => setIsDrawerOpen(true);
   const handleDrawerClose = () => setIsDrawerOpen(false);
   const theme = useTheme();
+  const location = useLocation();
   const { setUser } = useAppContext();
   const handleLogout = async () => {
     try {
@@ -140,7 +143,8 @@ const PanelLayout = ({ children }) => {
               component="div"
               sx={{ textTransform: "capitalize" }}
             >
-              Admin Panel
+              {MenuItems?.find((item) => item.route === location.pathname)
+                ?.title || "Admin Panel"}
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
           </Toolbar>
@@ -150,7 +154,7 @@ const PanelLayout = ({ children }) => {
             <div className="layoutLogo">
               {/* <img src={Logo} alt="" width="170px" className="layoutLogo" /> */}
               <Typography variant="h6" noWrap>
-                Admin Panel
+                ADMIN PANEL
               </Typography>
             </div>
             <IconButton onClick={handleDrawerClose}>
@@ -165,26 +169,59 @@ const PanelLayout = ({ children }) => {
                 <Tooltip
                   title={item.title}
                   followCursor
-                  component={Link}
-                  to={item.route}
+                  arrow
+                  placement="top-end"
                 >
-                  <ListItem button>
+                  <ListItemButton
+                    component={Link}
+                    to={item.route}
+                    selected={location.pathname === item.route}
+                  >
                     <ListItemIcon>{item.icon}</ListItemIcon>
                     <ListItemText primary={item.title} />
-                  </ListItem>
+                  </ListItemButton>
                 </Tooltip>
                 <Divider />
               </Fragment>
             ))}
-            <Tooltip title={"Click Here To Logout"} followCursor>
-              <ListItem button onClick={handleLogout}>
-                <ListItemIcon>
-                  <ExitToApp />
-                </ListItemIcon>
-                <ListItemText primary="Logout" />
-              </ListItem>
-            </Tooltip>
+            <Box hidden={isDrawerOpen}>
+              <Tooltip
+                title={"Click Here To Logout"}
+                followCursor
+                arrow
+                placement="top-end"
+              >
+                <ListItemButton onClick={handleLogout}>
+                  <ListItemIcon>
+                    <ExitToApp />
+                  </ListItemIcon>
+                  <ListItemText primary={"Logout"} />
+                </ListItemButton>
+              </Tooltip>
+            </Box>
           </List>
+          <Box
+            hidden={!isDrawerOpen}
+            sx={{
+              textAlign: "center",
+            }}
+          >
+            <Typography>Hi User,</Typography>
+            <Typography variant="caption">
+              Click here to logout from panel
+            </Typography>
+            <div className="">
+              <Button
+                variant="contained"
+                onClick={handleLogout}
+                startIcon={<ExitToApp />}
+                color="error"
+                className="mt-1vh"
+              >
+                Logout
+              </Button>
+            </div>
+          </Box>
         </CustomDrawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <CustomDrawerHeader />
