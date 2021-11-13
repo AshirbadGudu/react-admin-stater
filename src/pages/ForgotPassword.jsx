@@ -1,8 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import {
-  Container,
-  Card,
   CardContent,
   TextField,
   InputAdornment,
@@ -13,6 +11,7 @@ import {
 import { LoadingButton } from "@mui/lab";
 import { Email, Send } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { withAuthLayout } from "layouts";
 
 const ForgotPassword = () => {
   const initialValues = {
@@ -34,11 +33,8 @@ const ForgotPassword = () => {
   };
   return (
     <>
-      <Container
-        maxWidth="sm"
-        className="d-flex h-75vh place-content-center place-items-center"
-      >
-        <Card>
+      <>
+        <>
           <CardHeader
             title="Forgot your password?"
             subheader="Please enter the email address associated with your account and We will email you a link to reset your password."
@@ -96,10 +92,10 @@ const ForgotPassword = () => {
               </Form>
             )}
           </Formik>
-        </Card>
-      </Container>
+        </>
+      </>
     </>
   );
 };
 
-export default ForgotPassword;
+export default withAuthLayout(ForgotPassword);

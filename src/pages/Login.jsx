@@ -1,8 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import {
-  Container,
-  Card,
   CardContent,
   TextField,
   InputAdornment,
@@ -14,6 +12,7 @@ import { LoginSchema } from "schemas";
 import { LoginOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useAppContext } from "contexts";
+import { withAuthLayout } from "layouts";
 
 const Login = () => {
   const { setUser } = useAppContext();
@@ -36,11 +35,8 @@ const Login = () => {
   };
   return (
     <>
-      <Container
-        maxWidth="md"
-        className="d-flex h-75vh place-content-center place-items-center"
-      >
-        <Card>
+      <>
+        <>
           <CardHeader
             title="Sign In To Access Panel"
             subheader="Please enter your credentials to sign in"
@@ -104,10 +100,10 @@ const Login = () => {
               </Form>
             )}
           </Formik>
-        </Card>
-      </Container>
+        </>
+      </>
     </>
   );
 };
 
-export default Login;
+export default withAuthLayout(Login);
