@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/";
 import { purple } from "@mui/material/colors";
+const boxShadow = "#6a1b9a3d 0px 8px 16px 0px";
 const CustomTheme = createTheme({
   palette: {
     primary: {
@@ -7,7 +8,7 @@ const CustomTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: ' "Raleway", sans-serif',
+    fontFamily: '"Raleway", sans-serif',
   },
   components: {
     MuiButton: {
@@ -18,7 +19,7 @@ const CustomTheme = createTheme({
           paddingTop: "8px",
         },
         contained: {
-          boxShadow: "#6a1b9a3d 0px 8px 16px 0px",
+          boxShadow,
         },
       },
     },
@@ -26,7 +27,7 @@ const CustomTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "8px",
-          boxShadow: "#6a1b9a3d 0px 8px 16px 0px",
+          boxShadow,
         },
       },
     },
