@@ -15,7 +15,7 @@ import { useAppContext } from "contexts";
 import { withAuthLayout } from "layouts";
 
 const Login = () => {
-  const { setUser } = useAppContext();
+  const { login } = useAppContext();
   const initialValues = LoginSchema.reduce((accumulator, currentValue) => {
     accumulator[currentValue.name] = currentValue.initialValue;
     return accumulator;
@@ -26,10 +26,9 @@ const Login = () => {
   }, {});
   const handleLogin = async (values, submitProps) => {
     try {
-      setUser(values);
+      login(values);
     } catch (error) {
       console.log(error);
-    } finally {
       submitProps.setSubmitting(false);
     }
   };
