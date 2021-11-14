@@ -31,14 +31,13 @@ import {
 } from "@mui/icons-material";
 import { MenuItems } from "configs";
 import { useAppContext } from "contexts";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 // Define drawer width
 const drawerWidth = 260;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
-  // color: "#662992 ",
   background: "#fff",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -118,10 +117,12 @@ const PanelLayout = ({ children }) => {
   const handleDrawerClose = () => setIsDrawerOpen(false);
   const theme = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
   const { setUser } = useAppContext();
   const handleLogout = async () => {
     try {
       setUser({});
+      navigate("/", {});
     } catch (error) {
       console.log(error);
     }
@@ -247,25 +248,21 @@ const PanelLayout = ({ children }) => {
               action={
                 <>
                   {currentPageTitle !== "Dashboard" && (
-                    <>
-                      <Breadcrumbs
-                        separator={<NavigateNext fontSize="small" />}
+                    <Breadcrumbs separator={<NavigateNext fontSize="small" />}>
+                      <Chip
+                        icon={<Home />}
+                        label="Home"
+                        component={Link}
+                        to="/"
+                        onClick={() => {}}
+                      />
+                      <Typography
+                        sx={{ display: "flex", alignItems: "center" }}
+                        color="text.primary"
                       >
-                        <Chip
-                          icon={<Home />}
-                          label="Home"
-                          component={Link}
-                          to="/"
-                          onClick={() => {}}
-                        />
-                        <Typography
-                          sx={{ display: "flex", alignItems: "center" }}
-                          color="text.primary"
-                        >
-                          {currentPageTitle}
-                        </Typography>
-                      </Breadcrumbs>
-                    </>
+                        {currentPageTitle}
+                      </Typography>
+                    </Breadcrumbs>
                   )}
                 </>
               }
