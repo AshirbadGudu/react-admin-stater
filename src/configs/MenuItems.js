@@ -5,7 +5,7 @@ const MenuItems = [
     key: "1",
     title: "Dashboard",
     icon: <Dashboard />,
-    route: "/dashboard",
+    route: "/",
   },
   {
     key: "2",

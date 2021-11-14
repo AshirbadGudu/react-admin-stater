@@ -16,12 +16,18 @@ import {
   AppBar,
   Button,
   ListItemButton,
+  Card,
+  CardHeader,
+  Breadcrumbs,
+  Chip,
 } from "@mui/material";
 import {
   ExitToApp,
   ChevronLeft,
   ChevronRight,
   Menu as MenuIcon,
+  Home,
+  NavigateNext,
 } from "@mui/icons-material";
 import { MenuItems } from "configs";
 import { useAppContext } from "contexts";
@@ -32,7 +38,7 @@ const drawerWidth = 260;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
-  color: "#662992 ",
+  // color: "#662992 ",
   background: "#fff",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -70,8 +76,8 @@ const CustomAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
-  background: "#662992 ",
-  color: "#fff",
+  background: "#fff ",
+  color: "#000",
   boxShadow: "3px 3px 10px #1b00ff1f",
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
@@ -120,6 +126,9 @@ const PanelLayout = ({ children }) => {
       console.log(error);
     }
   };
+  const currentPageTitle = MenuItems.find(
+    (item) => item.route === location.pathname
+  )?.title;
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -143,8 +152,7 @@ const PanelLayout = ({ children }) => {
               component="div"
               sx={{ textTransform: "capitalize" }}
             >
-              {MenuItems?.find((item) => item.route === location.pathname)
-                ?.title || "Admin Panel"}
+              {"Admin Panel"}
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
           </Toolbar>
@@ -223,8 +231,46 @@ const PanelLayout = ({ children }) => {
             </div>
           </Box>
         </CustomDrawer>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            backgroundColor: "#e3f3fd",
+            minHeight: "100vh",
+          }}
+        >
           <CustomDrawerHeader />
+          <Card>
+            <CardHeader
+              title={currentPageTitle}
+              action={
+                <>
+                  {currentPageTitle !== "Dashboard" && (
+                    <>
+                      <Breadcrumbs
+                        separator={<NavigateNext fontSize="small" />}
+                      >
+                        <Chip
+                          icon={<Home />}
+                          label="Home"
+                          component={Link}
+                          to="/"
+                          onClick={() => {}}
+                        />
+                        <Typography
+                          sx={{ display: "flex", alignItems: "center" }}
+                          color="text.primary"
+                        >
+                          {currentPageTitle}
+                        </Typography>
+                      </Breadcrumbs>
+                    </>
+                  )}
+                </>
+              }
+            />
+          </Card>
           {children}
         </Box>
       </Box>

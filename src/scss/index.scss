@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
+$page-background: #e3f3fd;
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +31,12 @@
   margin-top: 1vh !important;
 }
 .auth_page {
-  background-color: #e3f3fd;
+  background-color: $page-background;
   height: 100vh;
+}
+.page-bg {
+  background-color: $page-background;
+}
+.mh-100vh {
+  min-height: 100vh;
 }
