@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ashirbad/js-core@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@ashirbad/js-core/-/js-core-1.0.3.tgz#32593d035f0124622ac39d7d84c5f74afd694953"
-  integrity sha512-VatydZaJ0sqeGzca4S1mdygaK3bsz13yo4pGZilepqoKCxfCY88/gS2vDoGF+R9A4UxsyD2AMX9ih005rMnOxQ==
+"@ashirbad/js-core@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@ashirbad/js-core/-/js-core-1.0.4.tgz#c7960dde7e91a8e39f31bbb30fbb8f8d7618ac02"
+  integrity sha512-D9Blbg7QR3wNKHUGoELefNbm2uxxUAMgjUfh959qTQx2Jj8PjZTmMXNF3KLPJY5QRB/kdCeO+MBLZry4KLwS8w==
 
 "@babel/code-frame@7.10.4":
   version "7.10.4"
