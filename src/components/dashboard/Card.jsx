@@ -1,16 +1,23 @@
-import { Avatar, CardHeader, Card as MUICard } from "@mui/material";
+import {
+  Avatar,
+  CardHeader,
+  CardActionArea,
+  Card as MUICard,
+} from "@mui/material";
 
-const Card = ({ icon, title, subtitle }) => {
+const Card = ({ icon, title, subtitle, onClick }) => {
   return (
     <>
       <MUICard>
-        <CardHeader
-          avatar={<Avatar sx={{ backgroundColor: "red" }}>{icon}</Avatar>}
-          title={title}
-          subheader={subtitle}
-          titleTypographyProps={{ variant: "h5" }}
-          subheaderTypographyProps={{ variant: "h6" }}
-        />
+        <CardActionArea onClick={onClick}>
+          <CardHeader
+            avatar={<Avatar sx={{ backgroundColor: "red" }}>{icon}</Avatar>}
+            title={title}
+            subheader={subtitle}
+            titleTypographyProps={{ variant: "h5" }}
+            subheaderTypographyProps={{ variant: "h6" }}
+          />
+        </CardActionArea>
       </MUICard>
     </>
   );
