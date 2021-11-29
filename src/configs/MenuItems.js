@@ -1,4 +1,8 @@
-import { Dashboard, LockRounded } from "@mui/icons-material";
+import {
+  Dashboard,
+  LockRounded,
+  NotificationsRounded,
+} from "@mui/icons-material";
 
 const MenuItems = [
   {
@@ -6,6 +10,12 @@ const MenuItems = [
     title: "Dashboard",
     icon: <Dashboard />,
     route: "/",
+  },
+  {
+    key: "3",
+    title: "Notifications",
+    icon: <NotificationsRounded />,
+    route: "/notifications",
   },
   {
     key: "2",

@@ -1,5 +1,5 @@
 import { PanelLayout } from "layouts";
-import { ChangePassword, Dashboard } from "pages";
+import { ChangePassword, Dashboard, Notifications } from "pages";
 import { Routes, Route } from "react-router-dom";
 
 const PrivateRoutes = () => {
@@ -9,6 +9,7 @@ const PrivateRoutes = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/notifications" element={<Notifications />} />
       </Routes>
     </PanelLayout>
   );
