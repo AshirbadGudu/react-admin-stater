@@ -44,12 +44,12 @@ const PanelLayout = ({ children }) => {
           }}
         >
           <CustomDrawerHeader />
-          <Card>
-            <CardHeader
-              title={currentPageTitle}
-              action={
-                <>
-                  {currentPageTitle !== "Dashboard" && (
+          {currentPageTitle !== "Dashboard" && (
+            <Card>
+              <CardHeader
+                title={currentPageTitle}
+                action={
+                  <>
                     <Breadcrumbs separator={<NavigateNext fontSize="small" />}>
                       <Chip
                         icon={<Home />}
@@ -65,11 +65,11 @@ const PanelLayout = ({ children }) => {
                         {currentPageTitle}
                       </Typography>
                     </Breadcrumbs>
-                  )}
-                </>
-              }
-            />
-          </Card>
+                  </>
+                }
+              />
+            </Card>
+          )}
           {children}
         </Box>
       </Box>
