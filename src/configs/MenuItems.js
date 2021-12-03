@@ -1,6 +1,6 @@
 import {
   Dashboard,
-  LockRounded,
+  ManageAccounts,
   NotificationsRounded,
   People,
 } from "@mui/icons-material";
@@ -26,9 +26,9 @@ const MenuItems = [
   },
   {
     key: "2",
-    title: "Change Password",
-    icon: <LockRounded />,
-    route: "/change-password",
+    title: "Account Settings",
+    icon: <ManageAccounts />,
+    route: "/account-settings",
   },
 ];
 
