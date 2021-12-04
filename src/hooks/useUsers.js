@@ -13,6 +13,7 @@ const useUsers = () => {
           setUsers(
             results?.map((item, index) => ({
               ...item,
+              id: `${index}`,
               index,
               created_at: moment(item?.registered?.date).format(
                 "Do MMM YYYY hh:mm A"
