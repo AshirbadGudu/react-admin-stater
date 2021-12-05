@@ -17,10 +17,12 @@ import {
   Logout,
   Menu as MenuIcon,
   Notifications,
+  People,
   Settings,
 } from "@mui/icons-material";
 import { CustomAppBar } from "./custom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeaderLayout = ({ handleDrawerOpen, isDrawerOpen }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -57,9 +59,12 @@ const HeaderLayout = ({ handleDrawerOpen, isDrawerOpen }) => {
             {"Admin Panel"}
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <IconButton sx={{ mr: 2 }}>
+          <IconButton sx={{ mr: 2 }} component={Link} to="/users">
+            <People color="inherit" />
+          </IconButton>
+          <IconButton sx={{ mr: 2 }} component={Link} to="/notifications">
             <Badge badgeContent={4} color="error">
-              <Notifications color="primary" />
+              <Notifications color="inherit" />
             </Badge>
           </IconButton>
           <Chip
@@ -113,7 +118,7 @@ const HeaderLayout = ({ handleDrawerOpen, isDrawerOpen }) => {
           />
         </MenuItem>
         <Divider />
-        <MenuItem>
+        <MenuItem component={Link} to="/account-settings">
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
