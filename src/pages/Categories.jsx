@@ -1,5 +1,7 @@
+import { formatCurrency } from "@ashirbad/js-core";
 import MaterialTable from "@material-table/core";
 import { ExportCsv, ExportPdf } from "@material-table/exporters";
+import { Avatar } from "@mui/material";
 import { useCategories } from "hooks";
 
 const Categories = () => {
@@ -64,6 +66,45 @@ const Categories = () => {
             onClick: (evt, data) => console.log(data),
           },
         ]}
+        detailPanel={({ rowData }) => (
+          <MaterialTable
+            title={`Products of ${rowData.name}`}
+            data={rowData?.products}
+            columns={[
+              {
+                title: "#",
+                field: "id",
+                render: ({ index }) => index + 1,
+                width: "5%",
+                editable: "never",
+              },
+              {
+                title: "Image",
+                field: "image",
+                render: ({ image }) => (
+                  <Avatar
+                    src={image}
+                    variant="rounded"
+                    sx={{ width: 60, height: 60 }}
+                  />
+                ),
+                width: "5%",
+              },
+              {
+                title: "Title",
+                field: "title",
+              },
+              {
+                title: "Price",
+                field: "price",
+                render: ({ price }) => formatCurrency(price),
+                width: "5%",
+                type: "numeric",
+              },
+              { title: "Created At", field: "created_at", editable: "never" },
+            ]}
+          />
+        )}
       />
     </section>
   );
