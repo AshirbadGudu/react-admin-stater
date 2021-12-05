@@ -7,3 +7,4 @@ export const ForgotPassword = lazy(() => import("./ForgotPassword"));
 export const Notifications = lazy(() => import("./Notifications"));
 export const Users = lazy(() => import("./Users"));
 export const Products = lazy(() => import("./Products"));
+export const Categories = lazy(() => import("./Categories"));

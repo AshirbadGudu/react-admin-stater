@@ -1,5 +1,6 @@
 import {
   Dashboard,
+  LocalOffer,
   ManageAccounts,
   NotificationsRounded,
   People,
@@ -24,6 +25,12 @@ const MenuItems = [
     title: "Products",
     icon: <ShoppingBasket />,
     route: "/products",
+  },
+  {
+    key: "6",
+    title: "Categories",
+    icon: <LocalOffer />,
+    route: "/categories",
   },
   {
     key: "3",
