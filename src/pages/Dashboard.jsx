@@ -11,7 +11,7 @@ import ApexCharts from "react-apexcharts";
 const Dashboard = () => {
   const { products } = useProducts();
   const { categories } = useCategories();
-  const { users } = useUsers();
+  const { users, females, males } = useUsers();
   return (
     <>
       <Card>
@@ -22,28 +22,28 @@ const Dashboard = () => {
       </Card>
       <section className="py-2">
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
             <DashboardCard
               title={users?.length || "00"}
               subtitle="Total Users"
               icon={<People />}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
             <DashboardCard
               title={categories?.length || "00"}
               subtitle="Categories"
               icon={<LocalOffer />}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
             <DashboardCard
               title={products?.length || "00"}
               subtitle="Total Products"
               icon={<ShoppingBasket />}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
             <DashboardCard
               title={"00"}
               subtitle="Notifications"
@@ -51,29 +51,27 @@ const Dashboard = () => {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={6} lg={6}>
+          <Grid item xs={12} sm={12} md={12} lg={6}>
             {categories && (
-              <Card>
+              <Card
+                sx={{
+                  minHeight: "52vh",
+                }}
+              >
                 <CardContent>
                   {categories?.filter((category) => category?.numberOfProducts)
                     ?.length ? (
                     <ApexCharts
-                      type="donut"
+                      type="pie"
                       options={{
-                        colors: categories?.map(
-                          (_, i) => `#${9 - i}b${i}aa${1 + i}`
-                        ),
-                        chart: {
-                          type: "donut",
+                        theme: {
+                          monochrome: {
+                            enabled: true,
+                            color: "#7b1ea2",
+                          },
                         },
                         title: {
                           text: "Categories Graph",
-                        },
-                        fill: {
-                          colors: categories?.map(
-                            (_, i) => `#${9 - i}b${i}aa${1 + i}`
-                          ),
-                          type: "gradient",
                         },
                         labels: categories?.map(
                           (category) =>
@@ -81,6 +79,42 @@ const Dashboard = () => {
                               category?.numberOfProducts
                             } Items`
                         ),
+                      }}
+                      series={categories?.map(
+                        (category) => category?.numberOfProducts
+                      )}
+                    />
+                  ) : null}
+                </CardContent>
+              </Card>
+            )}
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={6}>
+            {users && (
+              <Card
+                sx={{
+                  minHeight: "52vh",
+                }}
+              >
+                <CardContent>
+                  {females?.length && males.length ? (
+                    <ApexCharts
+                      type="donut"
+                      options={{
+                        theme: {
+                          monochrome: {
+                            enabled: true,
+                            color: "#7b1ea2",
+                          },
+                        },
+                        chart: { type: "donut" },
+                        title: {
+                          text: "Users Gender Ratio",
+                        },
+                        labels: [
+                          `Total Male Users:${males?.length}`,
+                          `Total Female Users:${females?.length}`,
+                        ],
                         plotOptions: {
                           pie: {
                             startAngle: -90,
@@ -90,13 +124,11 @@ const Dashboard = () => {
                         },
                         grid: {
                           padding: {
-                            bottom: -180,
+                            bottom: -200,
                           },
                         },
                       }}
-                      series={categories?.map(
-                        (category) => category?.numberOfProducts
-                      )}
+                      series={[males?.length, females?.length]}
                     />
                   ) : null}
                 </CardContent>

@@ -29,7 +29,11 @@ const useUsers = () => {
     fetchUsers();
   }, [isMounted]);
 
-  return { users };
+  return {
+    users,
+    males: users?.filter((item) => item?.gender === "male"),
+    females: users?.filter((item) => item?.gender === "female"),
+  };
 };
 
 export default useUsers;
