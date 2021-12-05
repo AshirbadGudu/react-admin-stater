@@ -1,10 +1,14 @@
 import { formatCurrency } from "@ashirbad/js-core";
 import MaterialTable from "@material-table/core";
 import { ExportCsv, ExportPdf } from "@material-table/exporters";
-import { useProducts } from "hooks";
+import { useProducts, useCategories } from "hooks";
 import { Container, Typography, Avatar } from "@mui/material";
+
 const Products = () => {
   const { products } = useProducts();
+  const { categories } = useCategories();
+  console.log(categories);
+
   return (
     <section className="py-2">
       {products && (
@@ -40,8 +44,17 @@ const Products = () => {
               field: "price",
               render: ({ price }) => formatCurrency(price),
               width: "5%",
+              type: "numeric",
             },
-            { title: "Category", field: "category", width: "15%" },
+            {
+              title: "Category",
+              field: "category",
+              width: "15%",
+              lookup: categories?.reduce((acc, category) => {
+                acc[category?.name] = category?.name;
+                return acc;
+              }, {}),
+            },
             { title: "Created At", field: "created_at", editable: "never" },
           ]}
           detailPanel={({ rowData }) => (
@@ -70,6 +83,7 @@ const Products = () => {
               backgroundColor: "#f6eef8",
             },
             actionsColumnIndex: -1,
+            addRowPosition: "first",
           }}
           style={{
             boxShadow: "#6a1b9a3d 0px 8px 16px 0px",
