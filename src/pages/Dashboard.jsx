@@ -1,13 +1,12 @@
-import {
-  AccountCircle,
-  LocalOffer,
-  People,
-  WifiOff,
-} from "@mui/icons-material";
+import { LocalOffer, People, ShoppingBasket } from "@mui/icons-material";
 import { Card, CardHeader, Grid } from "@mui/material";
 import { Card as DashboardCard } from "components/dashboard";
+import { useCategories, useProducts, useUsers } from "hooks";
 
 const Dashboard = () => {
+  const { products } = useProducts();
+  const { categories } = useCategories();
+  const { users } = useUsers();
   return (
     <>
       <Card>
@@ -21,30 +20,23 @@ const Dashboard = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <DashboardCard
-              title="123"
+              title={users?.length}
               subtitle="Total Users"
               icon={<People />}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <DashboardCard
-              title="23"
-              subtitle="Online Users"
-              icon={<AccountCircle />}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <DashboardCard
-              title="100"
-              subtitle="Offline Users"
-              icon={<WifiOff />}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <DashboardCard
-              title="54"
-              subtitle="Total Products"
+              title={categories?.length}
+              subtitle="Categories"
               icon={<LocalOffer />}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <DashboardCard
+              title={products?.length}
+              subtitle="Total Products"
+              icon={<ShoppingBasket />}
             />
           </Grid>
         </Grid>
