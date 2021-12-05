@@ -2,7 +2,7 @@ import { Done } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import { TextInput } from "components/core";
 import { Form, Formik } from "formik";
-import ChangePasswordSchema from "schemas/ChangePasswordSchema";
+import { ChangePasswordSchema } from "schemas";
 import * as Yup from "yup";
 const ChangePassword = () => {
   const initialValues = ChangePasswordSchema.reduce(
@@ -56,7 +56,7 @@ const ChangePassword = () => {
                 loadingPosition="start"
                 startIcon={<Done />}
               >
-                Save Changes
+                Update Password
               </LoadingButton>
             </div>
           </Form>
