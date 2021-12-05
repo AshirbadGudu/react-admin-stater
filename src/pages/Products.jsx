@@ -84,6 +84,7 @@ const Products = () => {
             },
             actionsColumnIndex: -1,
             addRowPosition: "first",
+            selection: true,
           }}
           style={{
             boxShadow: "#6a1b9a3d 0px 8px 16px 0px",
@@ -100,6 +101,13 @@ const Products = () => {
               console.log(newData, oldData);
             },
           }}
+          actions={[
+            {
+              tooltip: "Remove All Selected Products",
+              icon: "delete",
+              onClick: (evt, data) => console.log(data),
+            },
+          ]}
         />
       )}
     </section>

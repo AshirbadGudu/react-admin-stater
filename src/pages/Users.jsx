@@ -88,6 +88,13 @@ const Users = () => {
               console.log(oldData);
             },
           }}
+          actions={[
+            {
+              tooltip: "Remove All Selected Users",
+              icon: "delete",
+              onClick: (evt, data) => console.log(data),
+            },
+          ]}
         />
       )}
     </section>

@@ -38,6 +38,7 @@ const Categories = () => {
             },
             actionsColumnIndex: -1,
             addRowPosition: "first",
+            selection: true,
           }}
           style={{
             boxShadow: "#6a1b9a3d 0px 8px 16px 0px",
@@ -54,6 +55,13 @@ const Categories = () => {
               console.log(newData, oldData);
             },
           }}
+          actions={[
+            {
+              tooltip: "Remove All Selected Categories",
+              icon: "delete",
+              onClick: (evt, data) => console.log(data),
+            },
+          ]}
         />
       )}
     </section>
