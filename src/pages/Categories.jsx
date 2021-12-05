@@ -4,6 +4,7 @@ import { useCategories } from "hooks";
 
 const Categories = () => {
   const { categories } = useCategories();
+
   return (
     <section className="py-2">
       <MaterialTable
@@ -19,6 +20,7 @@ const Categories = () => {
             editable: "never",
           },
           { title: "Name", field: "name" },
+          { title: "Number Of Products", field: "numberOfProducts" },
           { title: "Created At", field: "created_at" },
         ]}
         options={{
