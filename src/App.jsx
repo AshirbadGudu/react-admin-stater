@@ -4,13 +4,13 @@ import { useAppContext } from "contexts";
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { PrivateRoutes, PublicRoutes } from "routers";
-import { CustomTheme, CustomDarkTheme } from "theme";
+import useCustomTheme from "theme";
 const App = () => {
-  const { user, isDarkTheme } = useAppContext();
-
+  const { user } = useAppContext();
+  const { theme } = useCustomTheme();
   return (
     <Suspense fallback={<Loader />}>
-      <ThemeProvider theme={isDarkTheme ? CustomDarkTheme : CustomTheme}>
+      <ThemeProvider theme={theme}>
         <BrowserRouter>
           {!user?.email ? <PrivateRoutes /> : <PublicRoutes />}
         </BrowserRouter>

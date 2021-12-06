@@ -89,9 +89,6 @@ const Products = () => {
               exportFunc: (cols, data) => ExportPdf(cols, data),
             },
           ],
-          headerStyle: {
-            backgroundColor: "#f6eef8",
-          },
           actionsColumnIndex: -1,
           addRowPosition: "first",
           selection: true,

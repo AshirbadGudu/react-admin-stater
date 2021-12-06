@@ -73,9 +73,6 @@ const Users = () => {
             },
           ],
           selection: true,
-          headerStyle: {
-            backgroundColor: "#f6eef8",
-          },
           actionsColumnIndex: -1,
         }}
         style={{
