@@ -3,6 +3,7 @@ import MaterialTable from "@material-table/core";
 import { ExportCsv, ExportPdf } from "@material-table/exporters";
 import { useProducts, useCategories } from "hooks";
 import { Container, Typography, Avatar } from "@mui/material";
+import { PhotoUpload } from "components/core";
 
 const Products = () => {
   const { products } = useProducts();
@@ -33,6 +34,16 @@ const Products = () => {
               />
             ),
             width: "5%",
+            editComponent: ({ value, onChange }) => (
+              <PhotoUpload
+                value={value}
+                onChange={onChange}
+                dimensions={{
+                  width: 1280,
+                  height: 720,
+                }}
+              />
+            ),
           },
           {
             title: "Title",
