@@ -2,7 +2,6 @@ export const drawerWidth = 260;
 
 export const openedMixin = (theme) => ({
   width: drawerWidth,
-  background: "#fff",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,

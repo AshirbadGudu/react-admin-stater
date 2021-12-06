@@ -37,7 +37,7 @@ const HeaderLayout = ({ handleDrawerOpen, isDrawerOpen }) => {
   return (
     <>
       <CssBaseline />
-      <CustomAppBar position="fixed" open={isDrawerOpen}>
+      <CustomAppBar position="fixed" open={isDrawerOpen} variant="outlined">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -50,12 +50,7 @@ const HeaderLayout = ({ handleDrawerOpen, isDrawerOpen }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ textTransform: "capitalize" }}
-          >
+          <Typography variant="h6" noWrap sx={{ textTransform: "capitalize" }}>
             {"Admin Panel"}
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
