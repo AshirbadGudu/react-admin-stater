@@ -8,10 +8,13 @@ import {
   ListItemAvatar,
   ListItemText,
 } from "@mui/material";
+import { SendNotification } from "components/dialog";
 import { useUsers } from "hooks";
+import { useState } from "react";
 
 const Users = () => {
   const { users } = useUsers();
+  const [selectedUsers, setSelectedUsers] = useState([]);
   return (
     <section className="py-2">
       <MaterialTable
@@ -90,8 +93,17 @@ const Users = () => {
             icon: "delete",
             onClick: (evt, data) => console.log(data),
           },
+          {
+            tooltip: "Send notification to all selected users",
+            icon: "send",
+            onClick: (evt, data) => setSelectedUsers(data),
+          },
         ]}
         isLoading={!users}
+      />
+      <SendNotification
+        selectedUsers={selectedUsers}
+        handleClose={() => setSelectedUsers([])}
       />
     </section>
   );

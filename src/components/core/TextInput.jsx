@@ -3,7 +3,7 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Field } from "formik";
 import { useState } from "react";
 
-const TextInput = ({ name, label, type, startIcon }) => {
+const TextInput = ({ name, label, type, startIcon, multiline, rows }) => {
   const [isVisible, setIsVisible] = useState(false);
   const checkInputType = () => {
     if (type === "password" && isVisible) return "text";
@@ -38,6 +38,8 @@ const TextInput = ({ name, label, type, startIcon }) => {
                   </InputAdornment>
                 ) : null,
             }}
+            multiline={multiline}
+            rows={rows}
           />
         )}
       </Field>
