@@ -1,7 +1,8 @@
-import { Lock, Notifications, Person } from "@mui/icons-material";
+import { ColorLens, Lock, Notifications, Person } from "@mui/icons-material";
 import { Card, CardContent, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import ChangePassword from "./ChangePassword";
+import ChangeTheme from "./ChangeTheme";
 import Notification from "./Notification";
 import Profile from "./Profile";
 
@@ -23,11 +24,13 @@ const Settings = () => {
             label="Notification"
           />
           <Tab icon={<Lock />} iconPosition="start" label="Change Password" />
+          <Tab icon={<ColorLens />} iconPosition="start" label="Change Theme" />
         </Tabs>
         <CardContent>
           {value === 0 && <Profile />}
           {value === 1 && <Notification />}
           {value === 2 && <ChangePassword />}
+          {value === 3 && <ChangeTheme />}
         </CardContent>
       </Card>
     </section>
