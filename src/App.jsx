@@ -12,7 +12,7 @@ const App = () => {
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          {!user?.email ? <PrivateRoutes /> : <PublicRoutes />}
+          {user?.email ? <PrivateRoutes /> : <PublicRoutes />}
         </BrowserRouter>
       </ThemeProvider>
     </Suspense>

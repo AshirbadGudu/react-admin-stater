@@ -1,8 +1,9 @@
 import { Card, Container } from "@mui/material";
+import { Box } from "@mui/system";
 
 const withAuthLayout = (Page) => {
   const AuthLayout = () => (
-    <div className="auth_page">
+    <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
       <Container
         maxWidth="sm"
         className="d-flex h-75vh place-content-center place-items-center"
@@ -11,7 +12,7 @@ const withAuthLayout = (Page) => {
           <Page />
         </Card>
       </Container>
-    </div>
+    </Box>
   );
   return AuthLayout;
 };

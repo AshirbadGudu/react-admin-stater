@@ -39,7 +39,6 @@ const PanelLayout = ({ children }) => {
           sx={{
             flexGrow: 1,
             p: 3,
-            backgroundColor: "#e3f3fd",
             minHeight: "100vh",
           }}
         >
