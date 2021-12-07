@@ -6,6 +6,7 @@ import {
   Products,
   Settings,
   Users,
+  ManageFAQs,
 } from "pages";
 import { Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ const PrivateRoutes = () => {
         <Route path="/users" element={<Users />} />
         <Route path="/products" element={<Products />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/manage-faqs" element={<ManageFAQs />} />
       </Routes>
     </PanelLayout>
   );

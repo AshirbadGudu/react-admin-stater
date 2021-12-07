@@ -8,3 +8,4 @@ export const Notifications = lazy(() => import("./Notifications"));
 export const Users = lazy(() => import("./Users"));
 export const Products = lazy(() => import("./Products"));
 export const Categories = lazy(() => import("./Categories"));
+export const ManageFAQs = lazy(() => import("./ManageFAQs"));

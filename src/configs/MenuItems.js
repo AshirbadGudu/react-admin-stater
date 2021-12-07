@@ -4,6 +4,7 @@ import {
   ManageAccounts,
   NotificationsRounded,
   People,
+  Quiz,
   ShoppingBasket,
 } from "@mui/icons-material";
 
@@ -31,6 +32,12 @@ const MenuItems = [
     title: "Categories",
     icon: <LocalOffer />,
     route: "/categories",
+  },
+  {
+    key: "7",
+    title: "Manage FAQs",
+    icon: <Quiz />,
+    route: "/manage-faqs",
   },
   {
     key: "3",
