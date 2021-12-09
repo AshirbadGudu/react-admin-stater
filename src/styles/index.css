@@ -36,24 +36,6 @@
   margin-top: 1vh !important;
 }
 
-.auth_page {
-  background-color: #e3f3fd;
-  height: 100vh;
-}
-
-.page-bg {
-  background-color: #e3f3fd;
-}
-
-.mh-100vh {
-  min-height: 100vh;
-}
-
-.py-1 {
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-}
-
 .py-2 {
   padding-top: 2vh;
   padding-bottom: 2vh;
