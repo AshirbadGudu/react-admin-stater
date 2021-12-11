@@ -1,27 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
-$page-background: #e3f3fd;
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "base";
+@import "utilities";
+@import "components";
 .circularProgress {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-.place-content-end {
-  place-content: end;
-}
-.place-items-center {
-  place-items: center;
-}
-.place-content-center {
-  place-content: center;
-}
-.d-flex {
-  display: flex !important;
 }
 .h-75vh {
   height: 75vh;
