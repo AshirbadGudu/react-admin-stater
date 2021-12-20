@@ -1,4 +1,5 @@
 import {
+  Analytics,
   Dashboard,
   LocalOffer,
   ManageAccounts,
@@ -14,6 +15,12 @@ const MenuItems = [
     title: "Dashboard",
     icon: <Dashboard />,
     route: "/",
+  },
+  {
+    key: "4",
+    title: "Analytics",
+    icon: <Analytics />,
+    route: "/analytics",
   },
   {
     key: "4",

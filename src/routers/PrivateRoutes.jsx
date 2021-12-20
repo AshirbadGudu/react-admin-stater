@@ -7,6 +7,7 @@ import {
   Settings,
   Users,
   ManageFAQs,
+  Analytics,
 } from "pages";
 import { Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,7 @@ const PrivateRoutes = () => {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/analytics" element={<Analytics />} />
         <Route path="/account-settings" element={<Settings />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/users" element={<Users />} />
